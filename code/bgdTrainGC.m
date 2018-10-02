@@ -1,4 +1,4 @@
-function [lossF, it]=bgdTrainGC(W1,W2,X,Y,size=130)
+function [lossF, it, W1N, W2N]=bgdTrainGC(W1,W2,X,Y,size=130)
   pkg load optim;
   n=rows(X); #n par
   W1rows=rows(W1);
@@ -6,7 +6,7 @@ function [lossF, it]=bgdTrainGC(W1,W2,X,Y,size=130)
   W2rows=rows(W2);
   W2cols=columns(W2);
   W=packweights(W1,W2);
-  lossFunction=target(W1,W2,X,Y)
+  lossFunction=target(W1,W2,X,Y);
   lossFunctionNew=0;
   error=[];
   iter=[];
@@ -32,10 +32,12 @@ function [lossF, it]=bgdTrainGC(W1,W2,X,Y,size=130)
     W=Wn;
     lossFunction=lossFunctionNew;
   endfor
+  W=Wn;
   figure(1);
   hold off;
   plot(iter,error,"-b");
   hold on;
   it=iter;
   lossF=error;
+  [W1N, W2N] = unpackweights(W, W1rows,W1cols,W2rows,W2cols);
 endfunction

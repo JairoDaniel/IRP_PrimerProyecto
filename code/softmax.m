@@ -24,7 +24,6 @@ W2cols=columns(W2);
 #Entrenar pesos
 [lossF, it , w1, w2]=bgdTrain(W1,W2,X,Y,m/2);
 
-#[W1,W2]=unpackweights(w, W1rows, W1cols, W2rows, W2cols); 
 #Predecir salida con los pesos entrenados
 yp = predict(w1,w2,X);
 
@@ -76,6 +75,7 @@ cmap = [0,0,0; 1,0,0; 0,1,0; 0,0,1; 0.5,0,0.5; 0,0.5,0.5; 0.5,0.5,0.0];
 wimg=ind2rgb(winner,cmap);
 imshow(wimg);
 title("Winner classes");
+
 
 ## A figure with the weighted winners
 figure(k+3);

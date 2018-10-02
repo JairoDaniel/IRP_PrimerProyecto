@@ -1,5 +1,5 @@
+ #Función que normaliza la suma de Y da 1 en las salidas de las clases
 function Y=normalize(yp)
-  #Normalizar la suma de Y da 1 en las salidas de las clases
   Y=yp;
   Y=Y'./sum(Y');
   Y=Y';

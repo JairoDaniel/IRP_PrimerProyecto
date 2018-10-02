@@ -1,3 +1,6 @@
+#Función para generar un conjunto de datos a partir de cuantos datos se quieren
+#la cantidad de neuronas, la cantidad de clases y el tipo de figura.
+#Devuelve X,Y y los pesos iniciales W1,W2
 function [W1,W2,X,Y] = setDatos(datos, neuronas, clases, tipo="radial")
   [X Y]=create_data(datos, clases, tipo);
   [WT1]=create_data(neuronas,clases, tipo);

@@ -1,3 +1,5 @@
+#Función que calcula W1,W2 minimo de entrenamiento, además devuelve el error (lossF)
+#la cantidad de iteraciones it y W1,W2
 function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=30)
   n=rows(X); #n par
   W1rows=rows(W1);
@@ -27,14 +29,14 @@ function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=30)
     endif;
     W=Wn;
     lossFunction=lossFunctionNew;
-    printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
-    flush(stdout);
+    #printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
+    #flush(stdout);
   endfor
   W=Wn;
   lossF=error;
   it=iter;
   [W1N, W2N] = unpackweights(W, W1rows,W1cols,W2rows,W2cols);
-  figure(1);
+  figure(100);
   hold off;
   plot(it,lossF,"-b");
   hold on;

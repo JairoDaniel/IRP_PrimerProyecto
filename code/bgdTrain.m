@@ -28,7 +28,7 @@ function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=30)
     W=Wn;
     lossFunction=lossFunctionNew;
     printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
-    fflush(stdout);
+    flush(stdout);
   endfor
   W=Wn;
   lossF=error;

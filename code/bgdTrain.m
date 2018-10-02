@@ -39,5 +39,6 @@ function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=30)
   figure(100);
   hold off;
   plot(it,lossF,"-b");
+  title("loss function vs iterations");
   hold on;
 endfunction

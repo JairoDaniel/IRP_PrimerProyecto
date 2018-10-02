@@ -27,8 +27,8 @@ function [lossF, it, W1N, W2N]=bgdTrainGC(W1,W2,X,Y,size=130)
     error=[error lossFunctionNew];
     if(abs(lossFunction-lossFunctionNew)<epsilon) break;
     endif;
-    printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
-    fflush(stdout);
+    #printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
+    #fflush(stdout);
     W=Wn;
     lossFunction=lossFunctionNew;
   endfor

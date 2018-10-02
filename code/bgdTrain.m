@@ -1,4 +1,4 @@
-function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=130)
+function [lossF, it, W1N, W2N]=bgdTrain(W1,W2,X,Y,size=30)
   n=rows(X); #n par
   W1rows=rows(W1);
   W1cols=columns(W1);

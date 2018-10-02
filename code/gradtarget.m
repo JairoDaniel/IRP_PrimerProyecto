@@ -19,8 +19,8 @@ function [gW1,gW2]=gradtarget(W1,W2,X,Y)
   zj=(1./(1.+(e.^(-a1))))';
   tempW2=W2;
   tempW2(:,1)=[];
-  deltaj= (zj' * (1-zj)) * (tempW2' * deltak');
+  deltaj= (zj' .* (1.-zj') .* (tempW2' * deltak'))';
   zj=[ones(rows(zj),1) zj];
-  gW1=deltaj*vectX;
+  gW1=deltaj'*vectX;
   gW2=(deltak'*zj);
 endfunction;

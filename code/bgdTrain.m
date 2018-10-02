@@ -5,12 +5,10 @@ function [lossF, it]=bgdTrain(W1,W2,X,Y,size=130)
   W2rows=rows(W2);
   W2cols=columns(W2);
   W=packweights(W1,W2);
-  errorAct=0;
-  errorAnt=1;
   error=[];
   iter=[];
   # Learning rate
-  alpha = 0.035;
+  alpha = 0.05;
   epsilon=0.00005;
   lossFunction=target(W1,W2,X,Y);
   for i=[1:100000]
@@ -29,12 +27,10 @@ function [lossF, it]=bgdTrain(W1,W2,X,Y,size=130)
     endif;
     W=Wn;
     lossFunction=lossFunctionNew;
-    if(mod(i,1000)==0)
-    printf("%i %d   \r",i);
+    printf("i: %d ,lossFunctionNew: %d   \r",i,lossFunctionNew);
     fflush(stdout);
-    endif;
   endfor
-  iteraciones=i
+  #iteraciones=i
   lossF=error;
   it=iter;
 
